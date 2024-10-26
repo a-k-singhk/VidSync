@@ -7,11 +7,11 @@ const commentSchema=new Schema(
             type:String,
             required:true
         },
-        video:{
+        videoToComment:{
             type:Schema.Types.ObjectId,
             ref:"Video"
         },
-        owner:{
+        ownerOfComment:{
             type:Schema.Types.ObjectId,
             ref:"User"
         }

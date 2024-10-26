@@ -2,11 +2,11 @@ import mongoose,{Schema} from "mongoose";
 
 const tweetSchema=new Schema(
     {
-        content:{
+        text:{
             type:String,
             required:true
         },
-        owner:{
+        tweetOwner:{
             type:Schema.Types.ObjectId,
             ref:"User"
         }
@@ -16,4 +16,4 @@ const tweetSchema=new Schema(
     }
 )
 
-export const Tweet=mongoose.model("Tweet",likeSchema);
+export const Tweet=mongoose.model("Tweet",tweetSchema);

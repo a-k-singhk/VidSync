@@ -7,15 +7,11 @@ import {
 } from '../controllers/subscription.controller.js';
 
 const router=Router();
-router.use(verifyJwt);
+router.route("/c/:channelId").patch(verifyJwt, toogleSubscription);
 
-router
-.route("/c/:channelId")
-.get(getSubscribedChannels)
-.post(toogleSubscription);
+router.route("/s/:channelId").get(verifyJwt, getuserChannelSubscribers);
 
-router
-.route("/u/:subscriberId")
-.get(getuserChannelSubscribers);
+router.route("/:subscriberId").get(verifyJwt, getSubscribedChannels);
+
 
 export default router
