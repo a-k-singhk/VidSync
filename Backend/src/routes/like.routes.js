@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { getLikesVideo, toggleLike} from "../controllers/like.controller.js"
 
-import { verifyJwt } from "../middlewares/auth.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router=Router();
 
-//router.use(verifyJwt);
+//router.use(verifyJWT);
 
-router.route("/:type/:id").patch(verifyJwt, toggleLike)
-router.route("/getLikesVideo").get(verifyJwt, getLikesVideo)
+router.route("/:type/:id").patch(verifyJWT, toggleLike)
+router.route("/getLikesVideo").get(verifyJWT, getLikesVideo)
 
 export default router

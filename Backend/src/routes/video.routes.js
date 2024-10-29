@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { upload } from "../middlewares/multer.middleware.js";
 
-import { verifyJwt } from "../middlewares/auth.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 import {
   uploadVideo,
   getAllVideo,
@@ -13,7 +13,7 @@ const router = Router();
 
 // Route for uploading videos
 router.route("/uploadVideo").post(
-    verifyJwt,
+    verifyJWT,
   upload.fields([
     {
       name: "videoFile",
@@ -27,9 +27,9 @@ router.route("/uploadVideo").post(
   uploadVideo
 );
 
-router.route("/get-allVideo").get(verifyJwt, getAllVideo);
+router.route("/get-allVideo").get(verifyJWT, getAllVideo);
 router.route("/channel/video/:videoId").patch(
-    verifyJwt,
+    verifyJWT,
   upload.fields([
     {
       name: "videoFile",
@@ -42,6 +42,6 @@ router.route("/channel/video/:videoId").patch(
   ]),
   updateVideo
 );
-router.route("/delete/:videoId").delete(verifyJwt, deleteVideo);
+router.route("/delete/:videoId").delete(verifyJWT, deleteVideo);
 
 export default router;

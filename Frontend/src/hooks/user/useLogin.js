@@ -3,7 +3,7 @@ import axios from "axios";
 import {toast} from 'react-toastify';
 import toastConfig from "../../utils/toast";
 
-import {login as authLogin} from '../../store/authSlice';
+import {login as authLogin} from '../../store/authSlice.js';
 import { useNavigate } from "react-router-dom";
 
 const useLogin=()=>{

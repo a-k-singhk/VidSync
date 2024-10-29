@@ -6,9 +6,9 @@ const app=express();
 
 //Configure the cors
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
-    credentials:true
-}))
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  }));  
 //Middleware to cofigure request
 app.use(express.json({limit:"16kb"}));
 //Configure if the data is coming from the URL

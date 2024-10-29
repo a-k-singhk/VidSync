@@ -1,16 +1,29 @@
-import './App.css'
-import {Routes,Route} from 'react-router-dom';
-
-
-
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/SignUpPage"
+import HomePage from "./pages/HomePage";
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
       
+        <Routes>
+          <Route
+            path="/"
+            element={ <LoginPage />}
+          />
+          <Route
+            path="/signUp"
+            element={ <SignUpPage />}
+          />
+          <Route
+            path="/home"
+            element={ <HomePage />}
+          />
+        </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

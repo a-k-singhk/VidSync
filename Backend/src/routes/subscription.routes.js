@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyJwt } from "../middlewares/auth.middleware.js";
+import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { 
     getSubscribedChannels, 
     getuserChannelSubscribers, 
@@ -7,11 +7,11 @@ import {
 } from '../controllers/subscription.controller.js';
 
 const router=Router();
-router.route("/c/:channelId").patch(verifyJwt, toogleSubscription);
+router.route("/c/:channelId").patch(verifyJWT, toogleSubscription);
 
-router.route("/s/:channelId").get(verifyJwt, getuserChannelSubscribers);
+router.route("/s/:channelId").get(verifyJWT, getuserChannelSubscribers);
 
-router.route("/:subscriberId").get(verifyJwt, getSubscribedChannels);
+router.route("/:subscriberId").get(verifyJWT, getSubscribedChannels);
 
 
 export default router
